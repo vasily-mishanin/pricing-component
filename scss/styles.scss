@@ -36,8 +36,8 @@ body {
   align-items: center;
   height: 100%;
   text-align: center;
-  background: url(/images/bg-top.svg) no-repeat top right,
-    url(/images/bg-bottom.svg) no-repeat bottom left;
+  background: url(images/bg-top.svg) no-repeat top right,
+    url(images/bg-bottom.svg) no-repeat bottom left;
   background-color: $color-grayish-blue;
 
   // HEADER
