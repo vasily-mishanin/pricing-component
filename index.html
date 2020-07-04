@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <link rel="icon" href="./favicon.ico" type="image/x-icon">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap">
+  <link rel="stylesheet" href="public/normalize.css">
+  <link rel="stylesheet" href="public/styles.css">
+  <script src="script.js"></script>
+
+  <title>Frontend Mentor | [Pricing Component]</title>
+
+
+</head>
+
+<body>
+  <!--  -->
+  <div class="component-wrapper">
+    <!-- HEADER --------------------------------------->
+    <header class="component-header">
+      <div class="component-header-title">
+        <p>Our Pricing</p>
+      </div>
+      <div class="component-header-toggle">
+        <span class="component-header-toggle-item">Annually</span>
+        <!-- SWITCH ------------------------->
+        <label class="switch">
+          <input type="checkbox" id="price-switch">
+          <span class="slider round"></span>
+        </label>
+        <!-- /SWITCH ------------------------->
+        <span class="component-header-toggle-item">Monthly</span>
+      </div>
+
+
+
+    </header>
+    <!-- /HEADER --------------------------------------->
+    <!-- CARDS --------------------------------------->
+    <div class="cards-section">
+
+      <!-- Card-1 -->
+      <section class="card">
+        <h3 class="card-title">Basic</h3>
+        <div class="card-price"> <span id="basic">199.99</span></div>
+        <hr>
+        <p class="card-item">500 GB Storage</p>
+        <hr>
+        <p class="card-item">2 Users Allowed</p>
+        <hr>
+        <p class="card-item">Send up to 3 GB</p>
+        <hr>
+        <div class="card-cta"><a href="#"> Learn More</a></div>
+      </section>
+
+      <!-- Card-2 -->
+      <section class="card active-card">
+        <h3 class="card-title">Professional</h3>
+        <div class="card-price"><span id="professional">249.99</span></div>
+        <hr>
+        <p class="card-item">1 TB Storage</p>
+        <hr>
+        <p class="card-item">5 Users Allowed</p>
+        <hr>
+        <p class="card-item">Send up to 10 GB</p>
+        <hr>
+        <div class="card-cta light"><a href="#"> Learn More</a></div>
+      </section>
+
+      <!-- Card-3 -->
+      <section class="card">
+        <h3 class="card-title">Master</h3>
+        <div class="card-price"><span id="master">399.99</span></div>
+        <hr>
+        <p class="card-item">2 TB Storage</p>
+        <hr>
+        <p class="card-item">10 Users Allowed</p>
+        <hr>
+        <p class="card-item">Send up to 20 GB</p>
+        <hr>
+        <div class="card-cta"><a href="#"> Learn More</a></div>
+      </section>
+
+    </div>
+    <!-- /CARDS --------------------------------------->
+    <!-- FOOTER --------------------------------------->
+    <footer class="component-footer">
+      <div class="attribution">
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+        Coded by <a href="https://github.com/vasily-mishanin">Mishanin Vasily</a>.
+      </div>
+    </footer>
+    <!-- /FOOTER --------------------------------------->
+  </div>
+  <!-- / -->
+</body>
+
+</html>

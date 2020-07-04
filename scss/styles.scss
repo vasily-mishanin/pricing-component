@@ -1,0 +1,275 @@
+$color-grayish-blue: hsl(240, 78%, 98%);
+$color-light-grayish: hsl(234, 14%, 74%);
+$color-blue: hsl(233, 13%, 49%);
+$color-dark-blue: hsl(232, 13%, 33%);
+
+$gradientMain: 135deg, hsl(236, 72%, 79%), hsl(237, 63%, 64%);
+$gradientReversed: 135deg, hsl(237, 63%, 64%), hsl(236, 72%, 79%);
+
+@mixin font-main {
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: $color-dark-blue;
+}
+
+@mixin background-gradient($gradValue) {
+  background: linear-gradient($gradValue);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  // height: 100%;
+  min-height: 100%;
+}
+
+// START
+.component-wrapper {
+  @include font-main;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  text-align: center;
+  background: url(/images/bg-top.svg) no-repeat top right,
+    url(/images/bg-bottom.svg) no-repeat bottom left;
+  background-color: $color-grayish-blue;
+
+  // HEADER
+  .component-header {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 30px 5px;
+    margin: 20px 0 30px 0;
+
+    &-title {
+      padding: 10px 0;
+      font-size: 32px;
+      color: $color-blue;
+    }
+
+    &-toggle {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      &-item {
+        padding: 0 25px;
+        color: $color-light-grayish;
+      }
+    }
+  }
+
+  // CARDS SECTION
+  .cards-section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 40px;
+
+    // CARD
+    .card {
+      padding: 35px 30px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0px 0px 5px $color-light-grayish;
+
+      &-title {
+        margin: 0;
+        font-size: 20px;
+        font-weight: 600;
+      }
+
+      &-price {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px 0;
+        font-size: 70px;
+
+        &::before {
+          padding-right: 10px;
+          font-size: 38px;
+          content: "$";
+        }
+      }
+
+      &-item {
+        padding: 0 70px;
+      }
+
+      &-cta {
+        @include background-gradient($gradientMain);
+
+        padding: 15px;
+        margin-top: 30px;
+        border: 1px solid transparent;
+        border-radius: 7px;
+
+        a {
+          padding: 12px 70px;
+          font-size: 12px;
+          color: $color-grayish-blue;
+          text-decoration: none;
+          text-transform: uppercase;
+          letter-spacing: 2px;
+        }
+
+        &:hover {
+          background: none;
+          border: 1px solid $color-dark-blue;
+
+          a {
+            color: $color-blue;
+          }
+        }
+      }
+    }
+
+    .active-card {
+      @include background-gradient($gradientMain);
+
+      padding: 55px 30px 55px 30px;
+      color: $color-grayish-blue;
+
+      .card-cta.light {
+        background: $color-grayish-blue;
+        a {
+          color: $color-blue;
+        }
+
+        &:hover {
+          background: none;
+          border: 1px solid $color-grayish-blue;
+
+          a {
+            color: $color-grayish-blue;
+          }
+        }
+      }
+    }
+  }
+
+  .component-footer {
+  }
+}
+
+// SWITCH
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+
+  //hiding input
+  input {
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+
+  .slider {
+    @include background-gradient($gradientMain);
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    cursor: pointer;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+  }
+  // toggle handle (ball)
+  .slider::before {
+    position: absolute;
+    bottom: 4px;
+    left: 4px;
+    width: 26px;
+    height: 26px;
+    content: "";
+    background-color: $color-grayish-blue;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+  }
+
+  // all .slider that directly follows input:checked
+  input:checked + .slider {
+    @include background-gradient($gradientReversed);
+  }
+
+  input:focus + .slider {
+    box-shadow: 0 0 5px $color-dark-blue;
+  }
+
+  input:checked + .slider::before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+
+  .slider.round {
+    border-radius: 34px;
+  }
+
+  .slider.round::before {
+    border-radius: 50%;
+  }
+}
+
+hr {
+  margin: 0;
+  border-color: $color-grayish-blue;
+  border-width: 1px 0 0 0;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+// --- MEDIA---------------------->
+@media screen and (max-width: 720px) {
+  .component-wrapper {
+    background-position: 205px -50px, left bottom;
+
+    // HEADER
+    .component-header {
+      padding: 20px 5px;
+    }
+
+    // CARDS SECTION
+    .cards-section {
+      flex-direction: column;
+
+      // CARD
+      .card {
+        margin-bottom: 30px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 721px) and (max-width: 1020px) {
+  .component-wrapper {
+    .cards-section {
+      .card {
+        margin: 5px;
+      }
+      .active-card {
+        padding: 35px 30px;
+      }
+    }
+  }
+}
+
+//--- /MEDIA---------------------->
